@@ -1,0 +1,20 @@
+# orders/constants.py
+
+ACTIVE_MARKETPLACE_STATES = [
+    "NEW",
+    "SIGN_REQUIRED",
+    "PICKUP",
+    "DELIVERY",
+    "KASPI_DELIVERY",
+]
+
+KASPI_ACTIVE_STATES = [
+    "NEW",
+    "SIGN_REQUIRED",
+    "PICKUP",
+]
+
+KASPI_DELIVERY_STATES = [
+    "DELIVERY",
+    "KASPI_DELIVERY",
+]

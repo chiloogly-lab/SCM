@@ -1,0 +1,6 @@
+BASE_URL = "https://kaspi.kz/shop/api/v2"
+TIMEOUT = 20
+MAX_RETRIES = 3
+
+ORDERS_PAGE_SIZE = 20
+SYNC_LOOKBACK_MINUTES = 5

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Inter, Arial; background:#0f172a; color:white; }
+        .grid { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; }
+        .card { background:#020617; padding:20px; border-radius:12px; }
+        h1,h2 { margin:0 0 10px }
+        table { width:100%; border-collapse:collapse; }
+        td,th { padding:6px; border-bottom:1px solid #1e293b; }
+    </style>
+</head>
+<body>
+
+<h1>📊 Dashboard бизнеса</h1>
+
+<div class="grid">
+    <div class="card">
+        <h2>Сегодня</h2>
+        <p>Продажи: {{ sales_today.qty|default:0 }}</p>
+        <p>Оборот: {{ sales_today.revenue|default:0 }} ₸</p>
+    </div>
+
+    <div class="card">
+        <h2>7 дней</h2>
+        <p>Продажи: {{ sales_7d.qty|default:0 }}</p>
+        <p>Оборот: {{ sales_7d.revenue|default:0 }} ₸</p>
+    </div>
+
+    <div class="card">
+        <h2>30 дней</h2>
+        <p>Продажи: {{ sales_30d.qty|default:0 }}</p>
+        <p>Оборот: {{ sales_30d.revenue|default:0 }} ₸</p>
+    </div>
+
+    <div class="card">
+        <h2>Прогноз</h2>
+        <p>30 дней: {{ forecast_30 }}</p>
+        <p>90 дней: {{ forecast_90 }}</p>
+    </div>
+</div>
+
+<br>
+
+<div class="card">
+    <h2>📦 Рекомендованная закупка</h2>
+    <table>
+        <tr><th>Товар</th><th>Заказать</th></tr>
+        {% for row in products %}
+        <tr>
+            <td>{{ row.product }}</td>
+            <td>{{ row.recommendation }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="2">Нет дефицита</td></tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
